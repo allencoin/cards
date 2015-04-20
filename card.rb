@@ -51,3 +51,11 @@ deck = Deck.new
 deck.shuffle
 deck.output
 deck.deal
+
+# So each time I run this it's creating a new deck
+# then it shuffles the new deck and outputs the
+# first card from the deck, but doesn't keep the 
+# deck in memory. 
+# So I need a way to create a new deck once and 
+# deal the first card, then reshuffle the remaining
+# cards until there are no more cards to deal

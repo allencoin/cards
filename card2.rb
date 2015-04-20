@@ -51,3 +51,18 @@ deck = Deck.new
 deck.shuffle
 deck.output
 deck.deal
+
+# Okay, here's what I want this to do. I want this to be kind
+# of like a choose-your-own adventure game. I want to call
+# card2.rb and have it create a deck of cards. I want to be 
+# able to type 'deal' and have it deal a card from the deck of 
+# cards, delete it, and tell me how many cards are left.
+# so, like:
+# 
+# $ deal
+# 9 of Spades
+# 51 cards left.
+# $ deal
+# Queen of Hearts
+# 50 cards left.
+# 

@@ -43,7 +43,9 @@ class Deck
 	end
 
 	def deal
-		@cards.shift.output_card
+		# @cards.shift.output_card
+		return @cards.shift #this returns the actual card object
+		# rather than calling output_card within the deck
 	end
 end
 

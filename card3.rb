@@ -43,47 +43,36 @@ class Deck
 	end
 
 	def deal
-		@cards.shift.output_card
+		# @cards.shift.output_card
+		return @cards.shift #this returns the actual card object
+		# rather than calling output_card within the deck
 	end
 
-
+	def count
+		return @cards.count
+	end
 end
 
 deck = Deck.new
 deck.shuffle
 
-puts "Cards shuffled. Type \"deal\" to deal a card."
+puts "Cards shuffled. Type \"deal\" to deal a card. or \"quit\" to quit."
+deal = "deal"
 
-print "> "
-deal = $stdin.gets.chomp
+while deal != "quit" && deck.count > 0
+	print "> "
+	deal = $stdin.gets.chomp
 
-if deal == "deal"
-	puts "#{deck.deal}"
-	# puts "#{deck.count} cards left. Deal again?"
-	# if deck.count > 0
-	# 	puts "Deal again?"
-	# 	print "> "
-	# 	deal = $stdin.gets.chomp
-	# else
-	# 	puts "Game over."
-	# end
-
-else 
-	puts "Type \"deal\" to deal a card."
-	# print "> "
-	# deal = $stdin.gets.chomp
+	if deal == "deal"
+		card = deck.deal
+		card.output_card
+		puts "#{deck.count} cards left."
+		if deck.count >0
+			puts "Deal again?"
+		else
+			puts "Game over."
+		end
+	elsif deal != "quit" 
+		puts "Type \"deal\" to deal a card."
+	end
 end
-
-# Okay, here's what I want this to do. I want this to be kind
-# of like a choose-your-own adventure game. I want to call
-# card2.rb and have it create a deck of cards. I want to be 
-# able to type 'deal' and have it deal a card from the deck of 
-# cards, delete it, and tell me how many cards are left.
-# so, like:
-# 
-# $ > deal
-# 9 of Spades
-# 51 cards left. Deal again?
-# $ > deal
-# Queen of Hearts
-# 50 cards left. Deal again?

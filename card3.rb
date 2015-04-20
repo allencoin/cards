@@ -45,12 +45,34 @@ class Deck
 	def deal
 		@cards.shift.output_card
 	end
+
+
 end
 
 deck = Deck.new
 deck.shuffle
-# deck.output
-deck.deal
+
+puts "Cards shuffled. Type \"deal\" to deal a card."
+
+print "> "
+deal = $stdin.gets.chomp
+
+if deal == "deal"
+	puts "#{deck.deal}"
+	# puts "#{deck.count} cards left. Deal again?"
+	# if deck.count > 0
+	# 	puts "Deal again?"
+	# 	print "> "
+	# 	deal = $stdin.gets.chomp
+	# else
+	# 	puts "Game over."
+	# end
+
+else 
+	puts "Type \"deal\" to deal a card."
+	# print "> "
+	# deal = $stdin.gets.chomp
+end
 
 # Okay, here's what I want this to do. I want this to be kind
 # of like a choose-your-own adventure game. I want to call
@@ -59,9 +81,9 @@ deck.deal
 # cards, delete it, and tell me how many cards are left.
 # so, like:
 # 
-# $ deal
+# $ > deal
 # 9 of Spades
-# 51 cards left.
-# $ deal
+# 51 cards left. Deal again?
+# $ > deal
 # Queen of Hearts
-# 50 cards left.
+# 50 cards left. Deal again?
